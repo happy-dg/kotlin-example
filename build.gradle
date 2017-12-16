@@ -50,8 +50,19 @@ dependencies {
 
     compile("com.h2database:h2:1.4.196")
 
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.hibernate:hibernate-validator")
+    compile("org.thymeleaf:thymeleaf:3.0.8.RELEASE")
+    compile("org.thymeleaf:thymeleaf-spring4:3.0.8.RELEASE")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.2.2")
+    compile("io.github.jpenren:thymeleaf-spring-data-dialect:3.3.1")
+    compile("org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.1.RELEASE")
 
+    compile("org.webjars:jquery:3.2.1")
+    compile("org.webjars:jquery-ui:1.12.1")
+    compile("org.webjars:bootstrap:3.3.7")
+    compile("org.webjars:jquery-tmpl:beta1.0.0-1")
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile("junit:junit:4.12")
     testCompile("com.google.truth:truth:0.36")
     testCompile("com.nhaarman:mockito-kotlin:1.5.0")
