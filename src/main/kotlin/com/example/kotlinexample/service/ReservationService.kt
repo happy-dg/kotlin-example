@@ -1,6 +1,7 @@
 package com.example.kotlinexample.service
 
 import com.example.kotlinexample.domain.reservation.ReservationRepository
+import com.example.kotlinexample.service.schedule.ScheduleFinder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

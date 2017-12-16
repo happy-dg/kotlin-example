@@ -1,4 +1,4 @@
-package com.example.kotlinexample.service
+package com.example.kotlinexample.service.schedule
 
 import com.example.kotlinexample.domain.schedule.Schedule
 import com.example.kotlinexample.domain.schedule.ScheduleRepository
