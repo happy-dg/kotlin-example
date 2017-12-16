@@ -41,7 +41,7 @@ class ScheduleTest {
         assertThat(reservation.totalPrice).isEqualTo(sut.salePrice * givenSeatNos.size)
         assertThat(reservation.seats.size).isEqualTo(givenSeatNos.size)
         reservation.seats.forEach {
-            assertThat(it.bus).isEqualTo(sut.bus)
+            assertThat(it.busId).isEqualTo(sut.bus.id)
             assertThat(givenSeatNos).contains(it.seatNo)
         }
     }
