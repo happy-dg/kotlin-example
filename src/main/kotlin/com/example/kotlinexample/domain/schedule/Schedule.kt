@@ -1,7 +1,6 @@
 package com.example.kotlinexample.domain.schedule
 
 import com.example.kotlinexample.domain.reservation.Reservation
-import com.example.kotlinexample.domain.reservation.ReservationSeat
 import com.example.kotlinexample.domain.user.User
 import java.util.*
 import javax.persistence.CascadeType
@@ -28,16 +27,10 @@ data class Schedule(
 
     fun createReservation(user: User, seatNos: List<Int>): Reservation {
         val reservation = Reservation(schedule = this, user = user, totalPrice = calculate(seatNos.size))
-
-        seatNos.map { seatNo ->
-            bus.doReservation(seatNo, reservation)
-            ReservationSeat(busId = bus.id!!, seatNo = seatNo).addToReservation(reservation)
-        }
-
+        bus.doReservation(seatNos, reservation)
         return reservation
     }
 
     private fun calculate(reservationCount: Int) = salePrice * reservationCount
 
 }
-

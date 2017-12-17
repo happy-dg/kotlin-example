@@ -33,7 +33,7 @@ class BusTest {
 
         var sut = Bus(schedule = schedule, seatCount = 10)
 
-        sut.doReservation(11, reservation)
+        sut.doReservation(listOf(11), reservation)
 
     }
 
@@ -45,7 +45,7 @@ class BusTest {
 
         var sut = Bus(schedule = schedule, seatCount = 1)
 
-        sut.doReservation(1, reservation)
+        sut.doReservation(listOf(1), reservation)
 
         assertThat(sut.seats.first().reservation).isEqualTo(reservation)
     }
