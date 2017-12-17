@@ -27,3 +27,4 @@ data class BusSeat(
         this.reservation = reservation
     }
 }
+

@@ -9,10 +9,9 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 @Service
 class ScheduleService @Autowired constructor(private var repository: ScheduleRepository) {
-
-
     fun createSchedule(destination: String, salePrice: Long, seatCount: Int): Schedule {
         var schedule = Schedule(destination = destination, salePrice = salePrice, seatCount = seatCount)
         return repository.save(schedule)
     }
 }
+
