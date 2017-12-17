@@ -1,6 +1,7 @@
 package com.example.kotlinexample.domain.schedule
 
 import com.example.kotlinexample.domain.reservation.Reservation
+import com.example.kotlinexample.domain.reservation.ReservationSeat
 
 data class Bus(
         var name: String,
@@ -19,9 +20,13 @@ data class Bus(
         seats.add(busSeat)
     }
 
-    fun doReservation(seatNo: Int, reservation: Reservation) {
-        seats.find { it.seatNo == seatNo }
-                ?.doReservation(reservation) ?: throw RuntimeException("not found seat.")
+    fun doReservation(seatNos: List<Int>, reservation: Reservation) {
+        seatNos.map { seatNo ->
+            seats.find { it.seatNo == seatNo }
+                    ?.doReservation(reservation) ?: throw RuntimeException("not found seat.")
+            ReservationSeat(bus = this, seatNo = seatNo).addToReservation(reservation)
+        }
+
     }
 
 }
