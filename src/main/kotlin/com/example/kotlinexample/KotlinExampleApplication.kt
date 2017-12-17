@@ -10,3 +10,4 @@ class KotlinExampleApplication
 fun main(args: Array<String>) {
     SpringApplication.run(KotlinExampleApplication::class.java, *args)
 }
+

@@ -40,3 +40,4 @@ data class Schedule(
     private fun calculate(reservationCount: Int) = salePrice * reservationCount
 
 }
+

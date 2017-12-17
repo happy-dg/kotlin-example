@@ -16,11 +16,11 @@ class ReservationService @Autowired constructor(
 ) {
 
     fun doReservation(scheduleId: Long, seatNos: List<Int>, userId: Long) {
-
         val schedule = scheduleFinder.findById(scheduleId)
-        schedule?.let {
-            val user = userFinder.findById(userId) ?: throw RuntimeException("not found User.")
-            repository.save(it.createReservation(user, seatNos))
-        } ?: throw RuntimeException("not found Schedule.")
+                ?: throw RuntimeException("not found Schedule.")
+        val user = userFinder.findById(userId)
+                ?: throw RuntimeException("not found User.")
+        repository.save(schedule.createReservation(user, seatNos))
     }
 }
+
