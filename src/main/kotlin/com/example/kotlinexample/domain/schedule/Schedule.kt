@@ -27,13 +27,6 @@ data class Schedule(
 
     fun createReservation(user: User, seatNos: List<Int>): Reservation {
         val reservation = Reservation(schedule = this, user = user, totalPrice = calculate(seatNos.size))
-
-        seatNos.map { seatNo ->
-            bus.doReservation(seatNo, reservation)
-            ReservationSeat(busId = bus.id!!, seatNo = seatNo).addToReservation(reservation)
-        }
-
-        val reservation = Reservation(schedule = this, user = user, totalPrice = salePrice * seatNos.size)
         bus.doReservation(seatNos, reservation)
         return reservation
     }

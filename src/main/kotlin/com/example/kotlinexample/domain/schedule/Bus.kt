@@ -1,6 +1,7 @@
 package com.example.kotlinexample.domain.schedule
 
 import com.example.kotlinexample.domain.reservation.Reservation
+import com.example.kotlinexample.domain.reservation.ReservationSeat
 import javax.persistence.CascadeType
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -9,7 +10,6 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 import javax.persistence.OneToOne
 import javax.persistence.Table
-import com.example.kotlinexample.domain.reservation.ReservationSeat
 
 @Table(name = "buses")
 @Entity
@@ -38,7 +38,7 @@ data class Bus(
         seatNos.map { seatNo ->
             seats.find { it.seatNo == seatNo }
                     ?.doReservation(reservation) ?: throw RuntimeException("not found seat.")
-            ReservationSeat(busId = this.id, seatNo = seatNo).addToReservation(reservation)
+            ReservationSeat(busId = this.id!!, seatNo = seatNo).addToReservation(reservation)
         }
 
     }
